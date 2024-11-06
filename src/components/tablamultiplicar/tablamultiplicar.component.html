@@ -1,0 +1,29 @@
+<div>
+    <form #sumarForm="ngForm">
+        <label>Introduce un numero a multiplicar</label>
+        <input type="number" name="caja" #caja><br/>
+        <button (click)="calcularTabla()">Generar tabla!</button>
+    </form>
+    @if(operaciones && resultados){
+        <table>
+            <thead>
+                <tr>
+                    <td>Operacion</td>
+                    <td>Resultado</td>
+                </tr>
+            </thead>
+            <tbody>
+                @for (op of operaciones; let i = $index; track i;) {
+                    <tr>
+                        <td>
+                            {{op}}
+                        </td>
+                        <td>
+                            {{resultados[i]}}
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+</div>

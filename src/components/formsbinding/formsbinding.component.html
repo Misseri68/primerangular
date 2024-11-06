@@ -6,7 +6,11 @@
         <label>Nombre: </label>
         <input type="text" name="cajanombre"
         #cajanombre="ngModel"
-        [(ngModel)]="user.nombre"/><br/>
+        [(ngModel)]="user.nombre" 
+        required/><br/>
+        <span style="color:red" *ngIf="cajanombre.valid == false && cajanombre.touched">
+            El nombre es obligatorio
+        </span>
         <label>Apellidos: </label>
         <input type="text" name="cajaapellidos"
         #cajaApellidos="ngModel"
@@ -15,7 +19,7 @@
         <input type="number" name="cajaedad"
         #cajaedad="ngModel" 
         [(ngModel)]="user.edad"/><br/>
-        <button>Enviar</button>
+        <button [disabled]="!userForm.valid">Enviar</button>
     </form>
 
     <h2>
